@@ -4,15 +4,15 @@ const {ObjectId}=mongoose.Schema
 const postSchema = mongoose.Schema({
     title: { type: String, default: null },
 
+    slug: { type: String, default: null },
+
     body: { type: String, default: null },
 
-    user_id: { type: ObjectId, ref: "User" },
+    user_id: { type: ObjectId, ref: "User",default:null },
 
-    images: { data: Buffer, contentType: String },
-
-    images: { data: Buffer, contentType: String },
+    images: { type: String ,default:null},
 
     created: {type: Date,default: Date.now()},     
 })
 
-module.exports=mongoose.Schema("Post",postSchema)
+module.exports=mongoose.model("Post",postSchema)
