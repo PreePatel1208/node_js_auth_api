@@ -1,14 +1,18 @@
 const mongooes = require('mongoose')
 
-const { MONGO_URI } = process.env
+const { MONGO_URL } = process.env
+
 exports.connect = () => {
-    mongooes.connect(MONGO_URI,
+
+    mongooes.connect(MONGO_URL,
         {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-        }).then(() => {
+        })
+        .then(() => {
             console.log("mongo connected successfully");
-        }).catch((error) => {
+        })
+        .catch((error) => {
             console.log("error", error);
         })
 }
