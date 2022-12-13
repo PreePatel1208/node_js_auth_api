@@ -68,7 +68,7 @@ exports.deletePost = async (req, res) => {
 exports.getAllPost = async (req, res) => {
 
     const result = await Post.find()
-        .select("_id title body slug");
+        .select("_id title body slug created");
 
     if (result) {
         return res.status(200).json({
@@ -85,7 +85,7 @@ exports.getAllPost = async (req, res) => {
 
 exports.getSinglePost = async (req, res) => {
     const id = req.params.id
-    const result = await Post.findById(id)
+    const result = await Post.findOne({slug:id})
         .select("_id title body slug");
 
     if (result) {
