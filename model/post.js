@@ -3,15 +3,19 @@ const mongoose = require("mongoose")
 const { ObjectId } = mongoose.Schema
 
 const postSchema = mongoose.Schema({
-    title: { type: String, default: null },
+    title: { type: String, require: "Title is required" },
 
-    slug: { type: String, default: null },
+    slug: { type: String, require: "slug is required" },
 
-    body: { type: String, default: null },
+    body: { type: String, require: "body is required" },
 
     user_id: { type: ObjectId, ref: "User", default: null },
 
-    images: { type: String, default: null },
+    viwes: { type: Number, default: null },
+
+    image:  {
+       type:Object,default:null
+    },
 
     created: { type: Date, default: Date.now() },
 })

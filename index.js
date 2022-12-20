@@ -2,6 +2,8 @@ const http=require('http')
 
 const app=require('./app')
 
+
+// app.options('*', cors())
 const server=http.createServer(app)
 
 const {API_PORT}=process.env
