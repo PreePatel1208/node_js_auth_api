@@ -1,6 +1,4 @@
 const formidable = require("formidable");
-const post = require("./../model/post");
-
 
 const Post = require("./../model/post")
 
@@ -33,8 +31,6 @@ exports.createPost = async (req, res) => {
     })
     console.log("postContent", postContent);
     res.status(200).json({ message: "success", postdata: postContent })
-
-
 }
 
 exports.updatePost = async (req, res) => {

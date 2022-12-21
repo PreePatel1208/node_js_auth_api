@@ -19,17 +19,15 @@ const upload = multer({
 const uploadPostImage = multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
-            cb(null, 'images')
+            cb(null, 'uploads/images')
         },
         filename: (req, file, cb) => {
             cb(null, file.fieldname + '_' + Date.now()
                 + Path.extname(file.originalname))
         }
     })
-}).array("image")
+}).single("image")
 const { createPost, updatePost, deletePost, getAllPost, getSinglePost } = require("./../controller/post")
-
-// router.post("/posts", createPost)
 
 router.put("/posts/:id", updatePost)
 
@@ -41,8 +39,10 @@ router.get("/posts/:id", getSinglePost)
 
 router.post('/posts', upload, createPost);
 
-router.post('/posts/upload', uploadPostImage,(req,res)=>{
- 
+router.post('/posts/upload', uploadPostImage, (req, res) => {
+
+    res.status(200).json({ message: "success" ,file:req.file})
+    
 });
 
 

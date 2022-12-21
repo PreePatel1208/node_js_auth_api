@@ -19,14 +19,19 @@ const userRoute=require('./routes/note.routes')
 
 const postRoute=require('./routes/post.route')
 
+const commentRoute=require('./routes/comment.route')
+
 app.use('/',userRoute)
 
 app.use('/',postRoute)
+
+app.use('/',commentRoute)
 
 app.use(express.json())
 // Function to serve all static files
 // inside public directory.
 app.use(express.static('uploads')); 
+
 app.use('/uploads', express.static('uploads'));
 
 module.exports = app
