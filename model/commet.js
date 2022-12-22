@@ -4,11 +4,9 @@ const { ObjectId } = mongoose.Schema
 
 const postComment = mongoose.Schema({
 
-    name: { type: String, require: "name is required" },
-
-    email: { type:String,require: "email is required" },
-
     post_id: { type: ObjectId, ref: "Post", default: null },
+    
+    user_id: { type: ObjectId, ref: "User", default: null },
 
     text: { type: String, default: null },
 

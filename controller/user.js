@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs')
 require("dotenv").config();
 
 exports.userRegister=async(req, res)=>{
-console.log("hello",req);
+
     try {
 
         const { firstname, lastname, email, password } = req.body
@@ -57,7 +57,7 @@ exports.login= async (req, res) => {
                 expiresIn: "2h"
             });
             user.token = token
-            res.status(201).send({ message: "Success", data: "login successfully" })
+            res.status(201).send({ message: "Success", data: user })
         }
         res.status(400).send({ message: "Success", data: "invalid credentials" })
 

@@ -1,21 +1,21 @@
 const formidable = require("formidable");
 
 const Post = require("./../model/post")
+const User=require("./../model/user")
 
 exports.createPost = async (req, res) => {
-
-    let form = new formidable.IncomingForm()
-    form.keepExtension = true
-    console.log("fields", req.file);
+const user =User.findOne({_id:"63a43a30834b7334914bb904"})
+// const 
     const file = req.file
-    const { title, body } = req.body
+
+    const { title, body } = req.body 
 
     if (!(title && body)) {
         res.status(400).send("please input fields")
 
     }
     let r = (Math.random() + 1).toString(36).substring(7);
-    console.log("random", r);
+ 
     let slug = title.toLowerCase()
         .trim()
         .replace(/[^\w\s-]/g, '')
@@ -27,9 +27,10 @@ exports.createPost = async (req, res) => {
         slug: slug,
         title: title,
         body: body,
-        image: file
+        image: file,
+        // user_id:user
     })
-    console.log("postContent", postContent);
+   
     res.status(200).json({ message: "success", postdata: postContent })
 }
 

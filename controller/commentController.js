@@ -3,9 +3,9 @@ const Comment = require("./../model/commet")
 
 exports.createComment = async (req, res) => {
 
-    const { name, email, post_id, text } = req.body
+    const { user_id, post_id, text } = req.body
 
-    if (!(name && email && post_id && text)) {
+    if (!(user_id && post_id && text)) {
 
         res.status(400).json({ message: "please enter require fields" })
     }
@@ -33,9 +33,9 @@ exports.updateComment = async (req, res) => {
 
     const id = req.params.id
 
-    const { name, email, post_id, text } = req.body
+    const {user_id, post_id, text } = req.body
 
-    if (!(name && email && post_id && text)) {
+    if (!(user_id && post_id && text)) {
 
         res.status(400).json({ message: "please enter require fields" })
     }

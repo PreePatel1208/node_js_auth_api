@@ -8,6 +8,8 @@ const userSchema = new mongooes.Schema({
 
     email: { type: String, unique: true },
 
+    role: {   type: String, enum : ['user','admin'], default:'user' },
+
     password: { type: String },
 
     token: { type: String }

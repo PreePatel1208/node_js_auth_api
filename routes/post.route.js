@@ -1,5 +1,6 @@
 const express = require("express")
 const { diskStorage } = require("multer")
+
 var Path = require('path');
 
 const router = express.Router()
@@ -27,11 +28,15 @@ const uploadPostImage = multer({
         }
     })
 }).single("image")
-const { createPost, updatePost, deletePost, getAllPost, getSinglePost } = require("./../controller/post")
+const { createPost, updatePost, deletePost, getAllPost, getSinglePost } = require("./../controller/post");
+const protect = require("../service/protect");
+
+router.use(protect)
 
 router.put("/posts/:id", updatePost)
 
 router.delete("/posts/:id", deletePost)
+
 
 router.get("/posts", getAllPost)
 
