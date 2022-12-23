@@ -33,7 +33,7 @@ const protect = require("../service/protect");
 
 router.use(protect)
 
-router.put("/posts/:id", updatePost)
+router.put("/posts/:id", upload,updatePost)
 
 router.delete("/posts/:id", deletePost)
 

@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "a0aac75f-82f1-4a6c-807d-386208c99679",
+		"name": "BlogSite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "update post",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbmFsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTY3MTc3MjkzNCwiZXhwIjoxNjcxNzgwMTM0fQ.Gww0PUwp3xTR4cNThyGUipVYTXti7125awrjKU2yzj0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "hey",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "HEllo kanha..",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/F:/angular learn/angluar learning projects/AuthenticationGuardRoute/src/assets/images/cat-4.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/posts/63a3fb1e12271d2d95feef11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts",
+								"63a3fb1e12271d2d95feef11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbmFsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTY3MTc3MjkzNCwiZXhwIjoxNjcxNzgwMTM0fQ.Gww0PUwp3xTR4cNThyGUipVYTXti7125awrjKU2yzj0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"hello prt\",\r\n    \"content\":\"hello kanha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all post Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"hello prt\",\r\n    \"content\":\"hello kanha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single post",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbmFsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTY3MTc3MjkzNCwiZXhwIjoxNjcxNzgwMTM0fQ.Gww0PUwp3xTR4cNThyGUipVYTXti7125awrjKU2yzj0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"hello prt\",\r\n    \"content\":\"hello kanha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/posts/hello-kanha",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts",
+								"hello-kanha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbmFsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTY3MTc3MjkzNCwiZXhwIjoxNjcxNzgwMTM0fQ.Gww0PUwp3xTR4cNThyGUipVYTXti7125awrjKU2yzj0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post Upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbmFsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTY3MTc3MjkzNCwiZXhwIjoxNjcxNzgwMTM0fQ.Gww0PUwp3xTR4cNThyGUipVYTXti7125awrjKU2yzj0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "hii",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "body",
+									"value": "hello",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/F:/angular learn/angluar learning projects/AuthenticationGuardRoute/src/assets/images/cat-1.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/posts/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2500/posts/6396b87dce002a104c27d879",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"posts",
+								"6396b87dce002a104c27d879"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "add comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vbmFsaUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMzQ1NiIsImlhdCI6MTY3MTc3MjkzNCwiZXhwIjoxNjcxNzgwMTM0fQ.Gww0PUwp3xTR4cNThyGUipVYTXti7125awrjKU2yzj0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"user_id\":\"63a30f81dfcbcba6465abfcc\",\"post_id\":\"63a2dc08a6f59783b55cb019\",\"text\":\"nice\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2500/comment/63a3102762f198dcc8e5a550",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"comment",
+								"63a3102762f198dcc8e5a550"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\":\"preet\",\r\n    \"lastname\":\"patel\",\r\n    \"email\":\"monika@gmail.com\",\r\n    \"password\":\"123456\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"monali@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2500/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2500",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

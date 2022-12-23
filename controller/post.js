@@ -1,21 +1,20 @@
 const formidable = require("formidable");
 
 const Post = require("./../model/post")
-const User=require("./../model/user")
+const User = require("./../model/user")
 
 exports.createPost = async (req, res) => {
-const user =User.findOne({_id:"63a43a30834b7334914bb904"})
-// const 
-    const file = req.file
 
-    const { title, body } = req.body 
+    const file = req.file
+    const { title, body } = req.body
+
 
     if (!(title && body)) {
         res.status(400).send("please input fields")
 
     }
     let r = (Math.random() + 1).toString(36).substring(7);
- 
+
     let slug = title.toLowerCase()
         .trim()
         .replace(/[^\w\s-]/g, '')
@@ -28,27 +27,43 @@ const user =User.findOne({_id:"63a43a30834b7334914bb904"})
         title: title,
         body: body,
         image: file,
-        // user_id:user
+        user_id: req.user[0]._id
     })
-   
+
     res.status(200).json({ message: "success", postdata: postContent })
 }
 
 exports.updatePost = async (req, res) => {
-    const { title, content } = req.body
+    const { title, body } = req.body
+
     const id = req.params.id
-    const post = Post.findById({ id })
-    console.log("post", req);
-    const slug = title?.toLowerCase()
-        .trim()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/[\s_-]+/g, '-')
-        .replace(/^-+|-+$/g, '');
-    const body = {
-        title: req.body.title ? req.body.title : post.title,
-        body: req.body.content ? req.body.content : post.body,
+
+    const post = await Post.findById(id)
+
+    const file = req.file
+
+    if (!(title && body)) {
+
+        res.status(400).send("please input fields")
+
     }
-    const result = await Post.findByIdAndUpdate(id, body, {
+
+    let slug = title.toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+slug = slug + r
+
+    const data = {
+        slug: slug?slug:post.slug,
+        title: title ? title : post.title,
+        body: body ? body : post.body,
+        image: file ? file : post.image,
+        user_id: req.user[0]._id
+    }
+
+    const result = await Post.findByIdAndUpdate(id, data, {
         new: true,
         runValidators: true
     });
@@ -66,7 +81,7 @@ exports.deletePost = async (req, res) => {
 
     if (result) {
 
-        return res.status(200).json({ message: "post deleted successfully" ,data:result })
+        return res.status(200).json({ message: "post deleted successfully", data: result })
 
     } else {
 
