@@ -31,20 +31,20 @@ const uploadPostImage = multer({
 const { createPost, updatePost, deletePost, getAllPost, getSinglePost } = require("./../controller/post");
 const protect = require("../service/protect");
 
-router.use(protect)
+// router.use(protect)
 
-router.put("/posts/:id", upload,updatePost)
+router.put("/posts/:id", protect,upload,updatePost)
 
-router.delete("/posts/:id", deletePost)
+router.delete("/posts/:id",protect, deletePost)
 
 
-router.get("/posts", getAllPost)
+router.get("/posts",getAllPost)
 
-router.get("/posts/:id", getSinglePost)
+router.get("/posts/:id",getSinglePost)
 
-router.post('/posts', upload, createPost);
+router.post('/posts',protect, upload, createPost);
 
-router.post('/posts/upload', uploadPostImage, (req, res) => {
+router.post('/posts/upload',protect, uploadPostImage, (req, res) => {
 
     res.status(200).json({ message: "success" ,file:req.file})
     

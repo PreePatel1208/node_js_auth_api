@@ -110,7 +110,7 @@ exports.getAllPost = async (req, res) => {
 exports.getSinglePost = async (req, res) => {
     const id = req.params.id
     const result = await Post.findOne({ slug: id })
-        .select("_id title body slug created");
+        .select("_id title body slug image created");
 
     if (result) {
         return res.status(200).json({
