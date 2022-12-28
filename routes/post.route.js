@@ -28,7 +28,7 @@ const uploadPostImage = multer({
         }
     })
 }).single("image")
-const { createPost, updatePost, deletePost, getAllPost, getSinglePost } = require("./../controller/post");
+const { createPost, updatePost, deletePost, getAllPost, getSinglePost,getSinglePostById,checkSlug } = require("./../controller/post");
 const protect = require("../service/protect");
 
 // router.use(protect)
@@ -41,6 +41,10 @@ router.delete("/posts/:id",protect, deletePost)
 router.get("/posts",getAllPost)
 
 router.get("/posts/:id",getSinglePost)
+
+router.get("/posts/slug/:slug",protect,checkSlug)
+
+router.get("/posts/edit/:id",protect,getSinglePostById)
 
 router.post('/posts',protect, upload, createPost);
 

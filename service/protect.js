@@ -15,10 +15,9 @@ const protect = catchAsync(async (req, res, next) => {
 
         res.status(401).json({ message: "you are not logged in, please login first" })
     }
-console.log("token ",token);
-
+console.log("token",token);
     jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
-        if (err) return res.json({ error: "unuthorized" })
+        if (err) return res.status(401).json({ error: "unuthorized" })
         const user = await User.find({ email: decoded.email })
         req.user = user
         next()

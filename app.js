@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
-const userRoute=require('./routes/note.routes')
+const userRoute=require('./routes/user.routes')
 
 const postRoute=require('./routes/post.route')
 
@@ -30,6 +30,7 @@ app.use('/',commentRoute)
 app.use(express.json())
 // Function to serve all static files
 // inside public directory.
+
 app.use(express.static('uploads')); 
 
 app.use('/uploads', express.static('uploads'));
